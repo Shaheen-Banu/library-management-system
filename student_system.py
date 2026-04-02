@@ -15,7 +15,7 @@ def add_student():
     with open(FILE_NAME, "a") as file:
         file.write(f"{id},{name}\n")
 
-    print("✅ Student added successfully!")
+    print(" Student added successfully!")
 
 def view_students():
     try:
@@ -45,13 +45,13 @@ def search_student():
                 id, name = line.strip().split(",")
 
                 if id == search_id:
-                    print("\n✅ Student Found:")
+                    print("\n Student Found:")
                     print(f"ID: {id}, Name: {name}")
                     found = True
                     break
 
             if not found:
-                print("❌ Student not found.")
+                print(" Student not found.")
 
     except FileNotFoundError:
         print("No data file found.")
@@ -75,9 +75,9 @@ def delete_student():
                     found = True
 
         if found:
-            print("🗑️ Student deleted successfully!")
+            print(" Student deleted successfully!")
         else:
-            print("❌ Student not found.")
+            print(" Student not found.")
 
     except FileNotFoundError:
         print("No data file found.")
