@@ -16,15 +16,15 @@ def add_book():
     with open(FILE_NAME, "a") as file:
         file.write(f"{book_id},{book_name},Available\n")
 
-    print("✅ Book added successfully!")
+    print(" Book added successfully!")
 
 def view_books():
-    print("DEBUG: view_books called")   # 👈 ADD THIS
+    print("DEBUG: view_books called")   
 
     try:
         with open(FILE_NAME, "r") as file:
             data = file.readlines()
-            print("DEBUG DATA:", data)  # 👈 ADD THIS
+            print("DEBUG DATA:", data)  
 
             if not data:
                 print("No books found.")
@@ -49,13 +49,13 @@ def search_book():
                 book_id, book_name, status = line.strip().split(",")
 
                 if book_id == search_id:
-                    print("\n✅ Book Found:")
+                    print("\n Book Found:")
                     print(f"ID: {book_id}, Name: {book_name}, Status: {status}")
                     found = True
                     break
 
             if not found:
-                print("❌ Book not found.")
+                print(" Book not found.")
 
     except FileNotFoundError:
         print("No data file found.")
@@ -76,16 +76,16 @@ def issue_book():
                 if book_id == issue_id:
                     if status == "Available":
                         file.write(f"{book_id},{book_name},Issued\n")
-                        print("📥 Book issued successfully!")
+                        print(" Book issued successfully!")
                     else:
                         file.write(line)
-                        print("❌ Book already issued!")
+                        print(" Book already issued!")
                     found = True
                 else:
                     file.write(line)
 
         if not found:
-            print("❌ Book not found.")
+            print(" Book not found.")
 
     except FileNotFoundError:
         print("No data file found.")
@@ -106,16 +106,16 @@ def return_book():
                 if book_id == return_id:
                     if status == "Issued":
                         file.write(f"{book_id},{book_name},Available\n")
-                        print("📤 Book returned successfully!")
+                        print(" Book returned successfully!")
                     else:
                         file.write(line)
-                        print("❌ Book was not issued!")
+                        print(" Book was not issued!")
                     found = True
                 else:
                     file.write(line)
 
         if not found:
-            print("❌ Book not found.")
+            print(" Book not found.")
 
     except FileNotFoundError:
         print("No data file found.")
